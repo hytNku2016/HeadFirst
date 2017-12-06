@@ -15,6 +15,7 @@ import com.up.patterns.commandPattern.commands.NoCommand;
 public class RemoteControlInvoker {
 	Command[] onCommands ;
 	Command[] offCommands ;
+	Command unDoCommand ;
 	
 	/**
 	 * 命令板只有7个插槽，此处可以参数化
@@ -29,6 +30,8 @@ public class RemoteControlInvoker {
 			onCommands[i] = noCommand;
 			offCommands[i] = noCommand;
 		}
+		
+		unDoCommand = noCommand;
 	}
 	
 	/**
@@ -49,6 +52,7 @@ public class RemoteControlInvoker {
 	public void onButtonPressed(int slot){
 		Command command = this.onCommands[slot];
 		command.execute();
+		unDoCommand = command;
 	}
 	
 	/**
@@ -58,6 +62,14 @@ public class RemoteControlInvoker {
 	public void offButtonPressed(int slot){
 		Command command = this.offCommands[slot];
 		command.execute();
+		unDoCommand = command;
+	}
+	
+	/**
+	 * 撤销动作按钮
+	 */
+	public void undoButtonPressed(){
+		unDoCommand.undo();
 	}
 
 	@Override

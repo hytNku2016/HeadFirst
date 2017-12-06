@@ -6,4 +6,8 @@ package com.up.patterns.commandPattern.baseModels;
 */
 public interface Command {
 	public void execute();
+	/**
+	 * 命令撤销动作,即执行一次相反操作 
+	 */
+	public void undo();
 }

@@ -14,4 +14,9 @@ public class NoCommand implements Command {
 		System.out.println("命令未设定....");
 	}
 
+	@Override
+	public void undo() {
+		System.out.println("命令未设定....");
+	}
+
 }
