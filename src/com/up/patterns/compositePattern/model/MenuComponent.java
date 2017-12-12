@@ -1,4 +1,7 @@
 package com.up.patterns.compositePattern.model;
+
+import java.util.Iterator;
+
 /** 
  * 菜单组件
  * 某些方法只对菜单项有意义，而有些只对菜单有意义，默认实现是抛出UnsupportedOperationException
@@ -62,6 +65,12 @@ public abstract class MenuComponent {
 	 * @return
 	 */
 	public void print(){
+		throw new UnsupportedOperationException();
+	}
+	/**
+	 * 迭代器
+	 */
+	public Iterator createIterator(){
 		throw new UnsupportedOperationException();
 	}
 }

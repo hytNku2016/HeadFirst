@@ -1,5 +1,7 @@
 package com.up.patterns.compositePattern.domains;
 
+import java.util.Iterator;
+
 import com.up.patterns.compositePattern.model.MenuComponent;
 
 /** 
@@ -44,6 +46,10 @@ public class MenuItem extends MenuComponent {
 		str += ", " + getPrice();
 		str += "---" + getDescription();
 		System.out.println(str);
+	}
+	@Override
+	public Iterator createIterator() {
+		return new NullIterator();
 	}
 	
 	
